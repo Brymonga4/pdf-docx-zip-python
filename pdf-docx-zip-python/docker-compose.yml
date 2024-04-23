@@ -1,0 +1,12 @@
+services:
+  app:
+    build: ./app
+    ports:
+      - "8080:8080"
+    volumes:
+      - uploads:/uploads
+      - temp:/temp
+
+volumes:
+  uploads:
+  temp:

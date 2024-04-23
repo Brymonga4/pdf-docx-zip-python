@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tipo de archivo</title>
+</head>
+<body>
+    <h1>Contenido del archivo</h1>
+    <pre>{{ message }}</pre>
+
+    <h1>Contenido del archivo comprimido</h1>
+    <ul>
+        {% for msg in files_list %}
+            <li>{{ msg }}</li>
+        {% endfor %}
+    </ul>
+
+    <h1>PDFs</h1>
+    <ul>
+        {% for tupla in pdf_list %}
+            <h1>PDF - {{ loop.index0+1 }}</h1>
+            <li><h2>Filename: {{ tupla[0] }}</h2></li>
+            <li>{{ tupla[1] }}</li>
+        {% endfor %}
+    </ul>
+
+    <h1>DOCs</h1>
+    <ul>
+        {% for tupla in docs_list %}
+            <h1>DOC - {{ loop.index0+1 }}</h1>
+            <li><h2>Filename: {{ tupla[0] }}</h2></li>
+            <li>{{ tupla[1] }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
