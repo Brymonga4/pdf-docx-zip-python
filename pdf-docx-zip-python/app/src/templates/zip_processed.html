@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Zip Procesado{% endblock %}
+
+{% block contenido %}
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title display-4 text-center bg-primary text-white p-3 mb-4" style="background-color: #007bff;">
+                    Contenido de la carpeta</h1>
+                <h2>{{ message }}</h2>
+
+                <h1>PDFs</h1>
+                <ul>
+                    {% for tupla in pdf_list %}
+                        <h1>PDF - {{ loop.index0+1 }}</h1>
+                        <li><h2>Filename: {{ tupla[0] }}</h2></li>
+                        <pre class="card-text">{{ tupla[1] }}</pre>
+                    {% endfor %}
+                </ul>
+            
+                <h1>DOCs</h1>
+                <ul>
+                    {% for tupla in docs_list %}
+                        <h1>DOC - {{ loop.index0+1 }}</h1>
+                        <li><h2>Filename: {{ tupla[0] }}</h2></li>
+                        <pre class="card-text">{{ tupla[1] }}</pre>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+{% endblock %}

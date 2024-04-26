@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Procesar PDF{% endblock %}
+
+{% block contenido %}
+    <h2>Subir Archivo PDF</h2>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file" id="file" accept=".pdf" required>
+        <br>
+        <button type="submit" formaction="{{ url_for('process_pdf_to_text') }}" class="btn btn-primary">Convertir a Texto</button>
+        <button type="submit" formaction="{{ url_for('process_pdf_to_docx') }}" class="btn btn-primary">Convertir a DOCX</button>
+        <button type="submit" formaction="{{ url_for('process_pdf_to_img') }}" class="btn btn-primary">Convertir a Imagen</button>
+    </form>
+{% endblock %}

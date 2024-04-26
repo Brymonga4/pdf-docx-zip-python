@@ -62,6 +62,16 @@ class Metodos:
         return pixmap
     
     @staticmethod
+    def transform_entire_pdf_to_png(file):
+        """Transforma de un archivo pdf a una lista de pixmap en 300 dpi y lo devuelve."""
+        pixmap_list = []
+        with fitz.open(file) as doc:
+            for page in doc:
+                pixmap = page.get_pixmap(dpi=300, alpha=False) #alpha = false, sin transparencia
+                pixmap_list.append(pixmap)
+        return pixmap_list
+       
+    @staticmethod
     def extract_img_from_pdf(file):
         """Extrae de archivo pdf todas las páginas y las devuelve en una lista de bytestream."""    
         imgs = []
@@ -105,7 +115,7 @@ class Metodos:
                 except Exception as e:
                     print(f"Error en la página {page_num + 1}: {e}")
         return imgs
-    
+
     @staticmethod
     def extract_text_from_docx(file):
         """Extrae de un archivo docx el texto de todas sus páginas y lo devuelve en una cadena de texto plano."""

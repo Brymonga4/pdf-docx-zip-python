@@ -15,7 +15,6 @@ class Archivo:
         self.pdf_list = []
         self.docs_list = []
 
-
     def set_path_file_and_save(self, folder):
         """Configura el directorio del archivo y lo guarda a partir de una carpeta donde se subirá."""
         self.path_file = os.path.join(folder, self.file.filename)
@@ -38,14 +37,13 @@ class Archivo:
             print(f"Error: {e}")
             self.mime_type = "application/octet-stream" 
 
-
     def process(self):
         """Procesa el archivo del objeto dependiendo del tipo de MIME que tiene."""
         if self.mime_type == 'application/zip' and self.file.filename.endswith('.zip'):
             return self.process_zip()
         elif self.mime_type == 'application/pdf':
             return self.process_pdf()
-        elif self.mime_type == 'application/zip'and self.file.filename.endswith('.docx'):
+        elif self.file.filename.endswith('.docx'):
             return self.process_docx()
         else:
             return "Tipo de archivo no aceptado."

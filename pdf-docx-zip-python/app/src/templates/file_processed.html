@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Archivo Procesado{% endblock %}
+
+{% block contenido %}
+    {% if to_file == "text" %}
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title display-4 text-center bg-primary text-white p-3 mb-4" style="background-color: #007bff;">
+                    Contenido del Archivo</h1>
+                <h2>{{ title }}</h2>
+                <pre class="card-text">{{ text }}</pre>
+            </div>
+        </div>
+    {% elif to_file == "img" %}
+        <div class="alert alert-warning" role="alert">
+            Estás enviando una img
+        </div>       
+    {% elif to_file == "docx" %}
+        <div class="alert alert-warning" role="alert">
+            DOCX creado en el directorio seleccionado.
+        </div>    
+    {% else %}
+        <div class="alert alert-warning" role="alert">
+            El contenido del archivo no está disponible en este momento.
+        </div>
+    {% endif %}
+{% endblock %}

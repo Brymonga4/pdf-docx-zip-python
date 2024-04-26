@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Procesar DOCX{% endblock %}
+
+{% block contenido %}
+    <h2>Subir Archivo DOCX</h2>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file" id="file" accept=".docx" required>
+        <br>
+        <button type="submit" formaction="{{ url_for('process_docx_to_text') }}" class="btn btn-primary">Convertir a Texto</button>
+    </form>
+{% endblock %}
